@@ -2,17 +2,18 @@
 
 - Updated the code from this project https://github.com/MerlinDMC/go-terraform-stateserver
 - Use any of the self-sgined howto's. I used this https://github.com/denji/golang-tls
+- Created subfolder states to match URL in terraform config
 
 Run http server example
 ---
 ````bash
-  $ go run tf-stateserver.go -data_path=./ -listen_address=192.168.1.235:8080
+  $ go run server.go -data_path=./ -listen_address=192.168.1.235:8080
 ````
 
 Run https server example
 ---
 ````bash
-  $ sudo go run tf-stateserver.go -certfile="server.crt" -keyfile="server.key" -data_path=./ -listen_address=192.168.1.235:443
+  $ sudo go run server.go -certfile="server.crt" -keyfile="server.key" -data_path=./ -listen_address=192.168.1.235:443
 ````
 
 Example terraform syntax for http
