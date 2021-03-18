@@ -39,7 +39,7 @@ Example terraform syntax for https
 ````
 TODO
 ---
-1. Add terraform lock configuration using configuration like this example used in a different setup with Oracle OCI object storage:
+1. Add terraform lock configuration using configuration like this example used in a different setup using python and flask:
 ````bash
 ➜  terraform-poc cat main.tf 
 terraform {
