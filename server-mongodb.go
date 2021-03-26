@@ -82,6 +82,7 @@ func requestHandler(res http.ResponseWriter, req *http.Request) {
                   obj, _ := json.Marshal(tempResult)
                   e = json.Unmarshal(obj, &result)
                 } else {
+		   fmt.Printf("FindOne failed for %s\n", stateID)	
 		   goto not_found
                 }
 		fmt.Printf("FindOne = %s\n", stateID)
