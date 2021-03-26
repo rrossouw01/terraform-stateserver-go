@@ -1,14 +1,14 @@
 #!/bin/bash
 ## for pre golang v1.16 like for Ubuntu 20.10 in my POC. For Ubuntu 21.04 using golang 1.16 in repo this is broken try 1.15 as below
-sudo apt install git -y
-sudo apt install golang -y
-go get go.mongodb.org/mongo-driver/mongo
-go get go.mongodb.org/mongo-driver/mongo/options
+## sudo apt install git -y
+## sudo apt install golang -y
+## go get go.mongodb.org/mongo-driver/mongo
+## go get go.mongodb.org/mongo-driver/mongo/options
 #sudo apt install golang-gopkg-mgo.v2-dev
 
 ## install golang 1.15 since 1.16 has issues with GOPATH being deprecated for modules.
 #sudo wget https://golang.org/dl/go1.15.10.linux-amd64.tar.gz
-#sudo rm -rf /usr/local/go && tar -C /usr/local -xzf go1.15.10.linux-amd64.tar.gz
+#sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf go1.15.10.linux-amd64.tar.gz
 
 ## mongodb admin tool
 sudo snap install robo3t-snap
