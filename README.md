@@ -1,20 +1,18 @@
 # terraform-stateserver-go
 
-- Updated the code from this project https://github.com/MerlinDMC/go-terraform-stateserver
+POC to test terraform http backend.  
+
+A few different proof of concepts I tried can be described as follow
+---
+1. python implmentation storing state file as a file in the local folder.  project/code here: https://github.com/rrossouw01/terraform-stateserver-py
+2. golang implementation storing state file as a file in the local folder. code in this project in file server.go
+3. golang implementation storing state in mongodb collection. code is in this project in file server-mongodb.go 
+
+References
+---
+- Initial source/idea from this project https://github.com/MerlinDMC/go-terraform-stateserver
 - Use any of the self-sgined howto's. I used this https://github.com/denji/golang-tls
 - Created subfolder states to match URL in terraform config
-
-Run http server example
----
-````bash
-  $ go run server.go -data_path=./ -listen_address=192.168.1.235:8080
-````
-
-Run https server example
----
-````bash
-  $ sudo go run server.go -certfile="server.crt" -keyfile="server.key" -data_path=./ -listen_address=192.168.1.235:443
-````
 
 Example terraform syntax for http
 ---
@@ -37,9 +35,35 @@ Example terraform syntax for https
     }
   }
 ````
+
+http server example for go and state stored in local folder/file
+---
+````bash
+$ go run server.go -data_path=./ -listen_address=192.168.1.235:8080
+````
+
+https server example for go and state stored in local folder/file
+---
+````bash
+$ sudo go run server.go -certfile="server.crt" -keyfile="server.key" -data_path=./ -listen_address=192.168.1.235:443
+````
+
+http server example for go and state stored in mongodb document
+---
+````bash
+$ go run server-mongodb.go -listen_address=192.168.1.235:443
+````
+
+https server example for go and state stored in mongodb document
+---
+NOTE: this is TBD not yet done
+````bash
+$ go run server-mongodb.go -certfile="server.crt" -keyfile="server.key" -listen_address=192.168.1.235:443
+````
+
 TODO
 ---
-1. Add terraform lock configuration using configuration like this example used in a different setup using python and flask:
+1. Add terraform lock configuration using configuration like this example:
 ````bash
 ➜  terraform-poc cat main.tf 
 terraform {
